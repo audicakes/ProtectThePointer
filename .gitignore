@@ -2,3 +2,4 @@
 *.ctxt
 *.log
 *.pdf
+.smbdelete*
