@@ -21,6 +21,8 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
     static private JPanel myPanel;
     static private int windowWidth;
     static private int windowHeight;
+    static private double scaleX = 1.0;
+    static private double scaleY = 1.0;
 
     static private int lastClick_xCoord;
     static private int lastClick_yCoord;
@@ -104,7 +106,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
 
     public PTP_Main()
     {
-        myFrame.addMouseListener(this);
+        addMouseListener(this);
         myFrame.addKeyListener(this);
         gameOver = true;
         gameMode = "";
@@ -152,6 +154,10 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
     }
 
     public void paintComponent(Graphics g){
+        Graphics2D g2d = (Graphics2D) g;
+        scaleX = (double) getWidth() / windowWidth;
+        scaleY = (double) getHeight() / windowHeight;
+        g2d.scale(scaleX, scaleY);
         if(gameOver == true)
         {
 
@@ -803,15 +809,17 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
         {
             playMusicHitmarker();
         }
-        lastClick_xCoord = e.getX();
-        lastClick_yCoord = e.getY();
+        scaleX = (double) getWidth() / windowWidth;
+        scaleY = (double) getHeight() / windowHeight;
+        lastClick_xCoord = (int)(e.getX() / scaleX);
+        lastClick_yCoord = (int)(e.getY() / scaleY);
         System.out.println(lastClick_xCoord+" , "+lastClick_yCoord); //testing
         if(gameOver == true)
         {
             //button for game theme: light or dark
-            //g.drawRect(25, 50, 170, 90); but the y value should be 30 more "why + 25?"
+            //g.drawRect(25, 25, 170, 90);
             if(lastClick_xCoord > 25 && lastClick_xCoord < 25+170 &&
-            lastClick_yCoord > 50+30 && lastClick_yCoord < 50+90+30)
+            lastClick_yCoord > 25 && lastClick_yCoord < 25+90)
             {
                 if(lightMode)
                 {
@@ -826,7 +834,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //button for changing theme
             //g.drawRect(750, 66, 200, 50);
             if(lastClick_xCoord > 750 && lastClick_xCoord < 750+200 &&
-            lastClick_yCoord > 66+30 && lastClick_yCoord < 66+50+30)
+            lastClick_yCoord > 66 && lastClick_yCoord < 66+50)
             {
                 themeNumber ++;
                 if(themeNumber > 5)
@@ -838,7 +846,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //button for changing lobby music
             //g.drawImage(music, 30, 385, 50, 50, this);
             if(lastClick_xCoord > 30 && lastClick_xCoord < 30+50 &&
-            lastClick_yCoord > 385+30 && lastClick_yCoord < 385+50+30)
+            lastClick_yCoord > 385 && lastClick_yCoord < 385+50)
             {
                 lobbySongNumber ++;
                 if(lobbySongNumber >= 6)
@@ -858,7 +866,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //button to change level music
             //g.drawImage(music, 910, 385, 50, 50, this);
             if(lastClick_xCoord > 910 && lastClick_xCoord < 910+50 &&
-            lastClick_yCoord > 385+30 && lastClick_yCoord < 385+50+30)
+            lastClick_yCoord > 385 && lastClick_yCoord < 385+50)
             {
                 levelSongNumber ++;
                 if(levelSongNumber >= 6)
@@ -882,7 +890,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //button for level 1
             //g.drawRect(125, 175, 200, 100); but the y value should be 30 more "why + 25?"
             if(lastClick_xCoord > 125 && lastClick_xCoord < 125+200 &&
-            lastClick_yCoord > 175+30 && lastClick_yCoord < 175+100+30)
+            lastClick_yCoord > 175 && lastClick_yCoord < 175+100)
             {
                 if(clipLobby != null)
                 {
@@ -902,7 +910,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //button for bullet challenge
             //g.drawRect(125, 380, 200, 100); but the y value should be 30 more "why + 25?"
             if(lastClick_xCoord > 125 && lastClick_xCoord < 125+200 &&
-            lastClick_yCoord > 380+30 && lastClick_yCoord < 380+100+30)
+            lastClick_yCoord > 380 && lastClick_yCoord < 380+100)
             {
                 if(clipLobby != null)
                 {
@@ -922,7 +930,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //button for level 2 
             //g.drawRect(390, 175, 200, 100);  but the y value should be 30 more "why + 25?"
             if(lastClick_xCoord > 390 && lastClick_xCoord < 390+200 &&
-            lastClick_yCoord > 175+30 && lastClick_yCoord < 175+100+30  &&
+            lastClick_yCoord > 175 && lastClick_yCoord < 175+100  &&
             highScore1 >= 75 &&  highBulletScore >= 60) //testing;
             {
                 if(clipLobby != null)
@@ -943,7 +951,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //button for laser challenge
             //g.drawRect(390, 380, 200, 100); but the y value should be 30 more "why + 25?"
             if(lastClick_xCoord > 390 && lastClick_xCoord < 390+200 &&
-               lastClick_yCoord > 380+30 && lastClick_yCoord < 380+100+30 &&
+               lastClick_yCoord > 380 && lastClick_yCoord < 380+100 &&
                highScore1 >= 75 && highBulletScore >= 60)
             {
                 if(clipLobby != null)
@@ -964,7 +972,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //button for level 3
             //g.drawRect(655, 175, 200, 100);    but the y value should be 30 more
             if(lastClick_xCoord > 655 && lastClick_xCoord < 655+200 &&
-            lastClick_yCoord > 175+30 && lastClick_yCoord < 175+100+30  &&
+            lastClick_yCoord > 175 && lastClick_yCoord < 175+100  &&
             highScore1 >= 100 && highScore2 >= 40 && 
             highBulletScore >= 80 && highLaserScore >= 75)
             {
@@ -986,7 +994,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //button for bouncer challenge 
             //g.drawRect(655, 380, 200, 100);     but the y value should be 30 more
             if(lastClick_xCoord > 655 && lastClick_xCoord < 655+200 &&
-            lastClick_yCoord > 380+30 && lastClick_yCoord < 380+100+30  &&
+            lastClick_yCoord > 380 && lastClick_yCoord < 380+100  &&
             highScore1 >= 100 && highScore2 >= 40 && 
             highBulletScore >= 80 && highLaserScore >= 75)
             {
@@ -1009,7 +1017,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //button to unlock themes
             //g.drawRect(760, 125, 180, 35);
             if(lastClick_xCoord > 760 && lastClick_xCoord < 760+180 &&
-            lastClick_yCoord > 125+30 && lastClick_yCoord < 125+35+30)
+            lastClick_yCoord > 125 && lastClick_yCoord < 125+35)
             {
                 if(themeNumber == 2 && themesUnlocked[1] == false && coins>=20)
                 {
@@ -1037,7 +1045,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //button to unlock lobby songs
             //g.drawRect(70, 210, 25, 160);
             if(lastClick_xCoord > 70 && lastClick_xCoord < 70+25 &&
-            lastClick_yCoord > 210+30 && lastClick_yCoord < 210+160+30 &&
+            lastClick_yCoord > 210 && lastClick_yCoord < 210+160 &&
             coins >= 10)
             {
                 if(lobbySongsUnlocked[lobbySongNumber] == false)
@@ -1050,7 +1058,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //button to unlock level songs
             //g.drawRect(885, 210, 25, 160);
             if(lastClick_xCoord > 885 && lastClick_xCoord < 885+25 &&
-            lastClick_yCoord > 210+30 && lastClick_yCoord < 210+160+30 &&
+            lastClick_yCoord > 210 && lastClick_yCoord < 210+160 &&
             coins >= 10)
             {
                 if(levelSongsUnlocked[levelSongNumber] == false)
@@ -1064,7 +1072,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //button to unlock heal power up
             //g.drawRect(80, 665, 180, 35);
             if(powerupsUnlocked[0] == false && lastClick_xCoord > 80 && lastClick_xCoord < 80+180 &&
-            lastClick_yCoord > 665+30 && lastClick_yCoord < 665+35+30 &&
+            lastClick_yCoord > 665 && lastClick_yCoord < 665+35 &&
             coins >= 30)
             {
                 coins-=30;
@@ -1073,7 +1081,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //button to unlock point power up
             //g.drawRect(305, 665, 180, 35);
             if(powerupsUnlocked[1] == false && lastClick_xCoord > 305 && lastClick_xCoord < 305+180 &&
-            lastClick_yCoord > 665+30 && lastClick_yCoord < 665+35+30 &&
+            lastClick_yCoord > 665 && lastClick_yCoord < 665+35 &&
             coins >= 30)
             {
                 coins-=30;
@@ -1082,7 +1090,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //button to unlock point power up
             //g.drawRect(530, 665, 180, 35);
             if(powerupsUnlocked[2] == false && lastClick_xCoord > 530 && lastClick_xCoord < 530+180 &&
-            lastClick_yCoord > 665+30 && lastClick_yCoord < 665+35+30 &&
+            lastClick_yCoord > 665 && lastClick_yCoord < 665+35 &&
             coins >= 30)
             {
                 coins-=30;
@@ -1091,7 +1099,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //button to unlock money power up
             //g.drawRect(755, 665, 180, 35);
             if(powerupsUnlocked[3] == false && lastClick_xCoord > 755 && lastClick_xCoord < 755+180 &&
-            lastClick_yCoord > 665+30 && lastClick_yCoord < 665+35+30 &&
+            lastClick_yCoord > 665 && lastClick_yCoord < 665+35 &&
             coins >= 30)
             {
                 coins-=30;
@@ -1110,7 +1118,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 int tempHeight = tempObs.getHeight();
                 //collectibles from clicking
                 if(lastClick_xCoord > tempX && lastClick_xCoord < tempX+tempWidth &&
-                lastClick_yCoord > tempY+30 && lastClick_yCoord < tempY+tempHeight+30)
+                lastClick_yCoord > tempY && lastClick_yCoord < tempY+tempHeight)
                 {
                     if(tempObs instanceof Coin)
                     {
@@ -1554,10 +1562,12 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
 
     public void checkCollide(SuperObstacle tempObs)
     {
-        if(mouseLoc.x > tempObs.getPos().x+frame_xCoord && 
-        mouseLoc.x < tempObs.getPos().x+frame_xCoord + tempObs.getWidth() &&
-        mouseLoc.y > tempObs.getPos().y+frame_yCoord &&
-        mouseLoc.y < tempObs.getPos().y+frame_yCoord + tempObs.getHeight())
+        double gameMouseX = (mouseLoc.x - frame_xCoord) / scaleX;
+        double gameMouseY = (mouseLoc.y - frame_yCoord) / scaleY;
+        if(gameMouseX > tempObs.getPos().x &&
+        gameMouseX < tempObs.getPos().x + tempObs.getWidth() &&
+        gameMouseY > tempObs.getPos().y &&
+        gameMouseY < tempObs.getPos().y + tempObs.getHeight())
         {
             if(tempObs instanceof Laser && tempObs.getHarmful() == false)
             {
@@ -2174,8 +2184,8 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
 
             int mouse_xCoord = MouseInfo.getPointerInfo().getLocation().x;
             int mouse_yCoord = MouseInfo.getPointerInfo().getLocation().y;
-            if(mouse_xCoord > frame_xCoord && mouse_xCoord < frame_xCoord+windowWidth &&
-            mouse_yCoord > frame_yCoord && mouse_yCoord < frame_yCoord+windowHeight)
+            if(mouse_xCoord > frame_xCoord && mouse_xCoord < frame_xCoord+myFrame.getContentPane().getWidth() &&
+            mouse_yCoord > frame_yCoord && mouse_yCoord < frame_yCoord+myFrame.getContentPane().getHeight())
             {
                 mouseLoc = MouseInfo.getPointerInfo().getLocation();
             }
@@ -2257,10 +2267,12 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 obstacles.clear();
                 initializeGameModeSettings = false;
 
+                double lobbyMouseX = (mouseLoc.x - frame_xCoord) / scaleX;
+                double lobbyMouseY = (mouseLoc.y - frame_yCoord) / scaleY;
                 //check level2PopUp if mouse hovers over Level 2 or Laser Challenge buttons
-                if((mouseLoc.x > 390+frame_xCoord && mouseLoc.x < 390+200+frame_xCoord) &&
-                  ((mouseLoc.y > 175+frame_yCoord && mouseLoc.y < 175+100+frame_yCoord) ||
-                  (mouseLoc.y > 380+frame_yCoord && mouseLoc.y < 380+100+frame_yCoord)))
+                if((lobbyMouseX > 390 && lobbyMouseX < 390+200) &&
+                  ((lobbyMouseY > 175 && lobbyMouseY < 175+100) ||
+                  (lobbyMouseY > 380 && lobbyMouseY < 380+100)))
                 {
                     level2PopUp = true;
                     //System.out.println(level2PopUp); //testing
@@ -2270,9 +2282,9 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                     level2PopUp = false;
                 }
                 //check level3PopUp if mouse hovers over Level 3 or Bouncer Challenge buttons
-                if((mouseLoc.x > 655+frame_xCoord && mouseLoc.x < 655+200+frame_xCoord) &&
-                  ((mouseLoc.y > 175+frame_yCoord && mouseLoc.y < 175+100+frame_yCoord) ||
-                  (mouseLoc.y > 380+frame_yCoord && mouseLoc.y < 380+100+frame_yCoord)))
+                if((lobbyMouseX > 655 && lobbyMouseX < 655+200) &&
+                  ((lobbyMouseY > 175 && lobbyMouseY < 175+100) ||
+                  (lobbyMouseY > 380 && lobbyMouseY < 380+100)))
                 {
                     level3PopUp = true;
                     //System.out.println(level2PopUp); //testing
@@ -2282,8 +2294,8 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                     level3PopUp = false;
                 }
                 //check rulesPopUp //g.drawRect(350, 550, 330, 100); old
-                if(mouseLoc.x > 425+frame_xCoord && mouseLoc.x < 585+frame_xCoord &&
-                mouseLoc.y > 100+frame_yCoord && mouseLoc.y < 140+frame_yCoord)
+                if(lobbyMouseX > 425 && lobbyMouseX < 585 &&
+                lobbyMouseY > 100 && lobbyMouseY < 140)
                 {
                     rulesPopUp = true;
                     //System.out.println(level2PopUp); //testing
@@ -2368,6 +2380,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
         myFrame.pack();
         myFrame.setLocationRelativeTo(null);
         myFrame.setVisible(true);
+        myFrame.setResizable(true);
         myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         new Thread(myPanel).start();
