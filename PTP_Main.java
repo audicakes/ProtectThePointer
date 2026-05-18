@@ -11,7 +11,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.sound.sampled.*;
-import java.io.*;
 import java.awt.geom.AffineTransform;
 public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runnable
 {
@@ -102,7 +101,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
     static private int clearPowerupRate;
     static private int moneyPowerupRate;
 
-    Image lock = Toolkit.getDefaultToolkit().getImage("images/lock.png");
+    Image lock = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/lock.png"));
 
     public PTP_Main()
     {
@@ -391,7 +390,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             if(highScore1 < 100 || highScore2 < 40 || 
                highBulletScore < 80 || highLaserScore < 75)
             {
-                //Image lock = Toolkit.getDefaultToolkit().getImage("images/lock.png");
+                //Image lock = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/lock.png"));
                 g.drawImage(lock, 630, 150, 50, 50, this);
             }
             //Bouncer Challenge
@@ -404,7 +403,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             if(highScore1 < 100 || highScore2 < 40 || 
                highBulletScore < 80 || highLaserScore < 75)
             {
-                //Image lock = Toolkit.getDefaultToolkit().getImage("images/lock.png");
+                //Image lock = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/lock.png"));
                 g.drawImage(lock, 630, 355, 50, 50, this);
             }
             //Level 3 Pop up
@@ -442,7 +441,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
 
             //power up shop: Heal
             g.drawString("Heal Power Up", 100, 580);
-            Image medkit = Toolkit.getDefaultToolkit().getImage("images/medkit.png");
+            Image medkit = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/medkit.png"));
             g.drawImage(medkit, 120, 575, 100, 100, this);
             g.drawRect(80, 665, 180, 35);
             g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
@@ -458,7 +457,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //power up shop: Point
             g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
             g.drawString("Point Power Up", 325, 580);
-            Image boost = Toolkit.getDefaultToolkit().getImage("images/boost.png");
+            Image boost = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/boost.png"));
             g.drawImage(boost, 365, 585, 70, 70, this);
             g.drawRect(305, 665, 180, 35);
             g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
@@ -474,7 +473,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //power up shop: Clear
             g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
             g.drawString("Clear Power Up", 550, 580);
-            Image eraser = Toolkit.getDefaultToolkit().getImage("images/eraser.png");
+            Image eraser = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/eraser.png"));
             g.drawImage(eraser, 590, 585, 80, 70, this);
             g.drawRect(530, 665, 180, 35);
             g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
@@ -490,7 +489,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //power up shop: Money
             g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
             g.drawString("Money Power Up", 775, 580);
-            Image moneybag = Toolkit.getDefaultToolkit().getImage("images/moneybag.png");
+            Image moneybag = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/moneybag.png"));
             g.drawImage(moneybag, 815, 585, 80, 80, this);
             g.drawRect(755, 665, 180, 35);
             g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
@@ -534,7 +533,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
             g.drawString("Tap to change", 15, 460);
             g.drawString("lobby music", 15, 480);
-            Image music = Toolkit.getDefaultToolkit().getImage("images/music.png");
+            Image music = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/music.png"));
             g.drawImage(music, 30, 385, 50, 50, this);
             //credit to 
             //https://stackoverflow.com/questions/10083913/how-to-rotate-text-with-graphics2d-in-java
@@ -573,12 +572,12 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             {
                 if(lightMode)
                 {  
-                    Image background = Toolkit.getDefaultToolkit().getImage("images/MLG meme background.jpeg");
+                    Image background = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/MLG meme background.jpeg"));
                     g.drawImage(background, 0, 0, windowWidth, windowHeight, this);
                 }
                 else //dark mode
                 {
-                    Image background = Toolkit.getDefaultToolkit().getImage("images/MLG meme background inverted.jpg");
+                    Image background = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/MLG meme background inverted.jpg"));
                     g.drawImage(background, 0, 0, windowWidth, windowHeight, this);
                 }
             }
@@ -597,28 +596,28 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 {
                     // g.setColor(new Color(0xF0B00D)); //gold
                     // g.fillOval(tempX, tempY, tempWidth, tempHeight);
-                    Image coin = Toolkit.getDefaultToolkit().getImage("images/coin.png");
+                    Image coin = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/coin.png"));
                     g.drawImage(coin, tempX, tempY, tempWidth, tempHeight, this);
 
                 }
                 else if(tempObs instanceof HealPowerup)
                 {
-                    Image medkit = Toolkit.getDefaultToolkit().getImage("images/medkit.png");
+                    Image medkit = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/medkit.png"));
                     g.drawImage(medkit, tempX, tempY, tempWidth, tempHeight, this);
                 }
                 else if(tempObs instanceof PointPowerup)
                 {
-                    Image boost = Toolkit.getDefaultToolkit().getImage("images/boost.png");
+                    Image boost = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/boost.png"));
                     g.drawImage(boost, tempX, tempY, tempWidth, tempHeight, this);
                 }
                 else if(tempObs instanceof ClearPowerup)
                 {
-                    Image eraser = Toolkit.getDefaultToolkit().getImage("images/eraser.png");
+                    Image eraser = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/eraser.png"));
                     g.drawImage(eraser, tempX, tempY, tempWidth, tempHeight, this);
                 }
                 else if(tempObs instanceof MoneyPowerup)
                 {
-                    Image moneybag = Toolkit.getDefaultToolkit().getImage("images/moneybag.png");
+                    Image moneybag = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/moneybag.png"));
                     g.drawImage(moneybag, tempX, tempY, tempWidth, tempHeight, this);
                 }
                 repaint();
@@ -735,22 +734,22 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                     {
                         if(memeChangeTime/200.0 <= 5)
                         {
-                            Image illuminati = Toolkit.getDefaultToolkit().getImage("images/illuminati.png");
+                            Image illuminati = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/illuminati.png"));
                             g.drawImage(illuminati, tempX, tempY, tempWidth, tempHeight, this);
                         }
                         else if(memeChangeTime/200.0 <= 10)
                         {
-                            Image trollface = Toolkit.getDefaultToolkit().getImage("images/trollface.png");
+                            Image trollface = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/trollface.png"));
                             g.drawImage(trollface, tempX, tempY, tempWidth, tempHeight, this);
                         }
                         else if(memeChangeTime/200.0 <= 15)
                         {
-                            Image pepe = Toolkit.getDefaultToolkit().getImage("images/pepe.png");
+                            Image pepe = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/pepe.png"));
                             g.drawImage(pepe, tempX, tempY, tempWidth, tempHeight, this);
                         }
                         else if(memeChangeTime/200.0 <= 20)
                         {
-                            Image trollface = Toolkit.getDefaultToolkit().getImage("images/sanic.png");
+                            Image trollface = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/sanic.png"));
                             g.drawImage(trollface, tempX, tempY, tempWidth, tempHeight, this);
                         }
                         else
@@ -781,7 +780,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             {
                 g.setColor(Color.RED);
             }
-            Image life = Toolkit.getDefaultToolkit().getImage("images/life.png");
+            Image life = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/life.png"));
             g.drawImage(life, 50, 10, 40, 40, this);
             g.drawString(lives+"", 15, 45);
             if(lightMode)
@@ -1266,8 +1265,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
     {
         try
         {
-            File songFile = new File("audio/"+songName+".wav");
-            AudioInputStream music = AudioSystem.getAudioInputStream(songFile);
+            AudioInputStream music = AudioSystem.getAudioInputStream(getClass().getResource("/audio/"+songName+".wav"));
             clipLobby = AudioSystem.getClip();
             clipLobby.open(music);
             clipLobby.start();
@@ -1285,8 +1283,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
     {
         try
         {
-            File songFile = new File("audio/"+songName+".wav");
-            AudioInputStream music = AudioSystem.getAudioInputStream(songFile);
+            AudioInputStream music = AudioSystem.getAudioInputStream(getClass().getResource("/audio/"+songName+".wav"));
             clipLevel = AudioSystem.getClip();
             clipLevel.open(music);
             clipLevel.start();
@@ -1304,8 +1301,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
     {
         try
         {
-            File songFile = new File("audio/MLG sound effects.wav");
-            AudioInputStream music = AudioSystem.getAudioInputStream(songFile);
+            AudioInputStream music = AudioSystem.getAudioInputStream(getClass().getResource("/audio/MLG sound effects.wav"));
             clipMLG = AudioSystem.getClip();
             clipMLG.open(music);
             clipMLG.start();
@@ -1323,8 +1319,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
     {
         try
         {
-            File songFile = new File("audio/hitmarker.wav");
-            AudioInputStream music = AudioSystem.getAudioInputStream(songFile);
+            AudioInputStream music = AudioSystem.getAudioInputStream(getClass().getResource("/audio/hitmarker.wav"));
             clipHitmarker = AudioSystem.getClip();
             clipHitmarker.open(music);
             clipHitmarker.start();

@@ -3,3 +3,6 @@
 *.log
 *.pdf
 .smbdelete*
+out/
+dist/
+*.jar
