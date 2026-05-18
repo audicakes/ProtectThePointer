@@ -22,7 +22,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
 
     static private int lastClick_xCoord;
     static private int lastClick_yCoord;
-    static private Point mouseLoc;
+    static private Point mouseLoc = new Point(0, 0);
 
     static private boolean gameOver;
     static private String gameMode;
@@ -890,6 +890,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 System.out.println("Level 1");
                 gameMode = "Level 1";
                 gameOver = false;
+                initializeGameModeSettings = false;
                 if(levelSongsUnlocked[levelSongNumber])
                 {
                     playMusicLevel(levelSongNames[levelSongNumber]);
@@ -909,6 +910,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 System.out.println("Bullet Challenge");
                 gameMode = "Bullet Challenge";
                 gameOver = false;
+                initializeGameModeSettings = false;
                 if(levelSongsUnlocked[levelSongNumber])
                 {
                     playMusicLevel(levelSongNames[levelSongNumber]);
@@ -929,6 +931,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 System.out.println("Level 2");
                 gameMode = "Level 2";
                 gameOver = false;
+                initializeGameModeSettings = false;
                 if(levelSongsUnlocked[levelSongNumber])
                 {
                     playMusicLevel(levelSongNames[levelSongNumber]);
@@ -949,6 +952,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 System.out.println("Laser Challenge");
                 gameMode = "Laser Challenge";
                 gameOver = false;
+                initializeGameModeSettings = false;
                 if(levelSongsUnlocked[levelSongNumber])
                 {
                     playMusicLevel(levelSongNames[levelSongNumber]);
@@ -970,6 +974,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 System.out.println("Level 3");
                 gameMode = "Level 3";
                 gameOver = false;
+                initializeGameModeSettings = false;
                 if(levelSongsUnlocked[levelSongNumber])
                 {
                     playMusicLevel(levelSongNames[levelSongNumber]);
@@ -991,6 +996,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 System.out.println("Bouncer Challenge");
                 gameMode = "Bouncer Challenge";
                 gameOver = false;
+                initializeGameModeSettings = false;
                 if(levelSongsUnlocked[levelSongNumber])
                 {
                     playMusicLevel(levelSongNames[levelSongNumber]);
@@ -2162,7 +2168,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
         {
             //get the x & y coordinates of game window on computer screen
             frame_xCoord = myFrame.getLocation().x;
-            frame_yCoord = myFrame.getLocation().y+25; //why + 25?
+            frame_yCoord = myFrame.getLocation().y+myFrame.getInsets().top;
 
             int mouse_xCoord = MouseInfo.getPointerInfo().getLocation().x;
             int mouse_yCoord = MouseInfo.getPointerInfo().getLocation().y;
@@ -2171,7 +2177,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             {
                 mouseLoc = MouseInfo.getPointerInfo().getLocation();
             }
-            else
+            else if(!gameOver)
             {
                 lives = 0;
             }
