@@ -2355,10 +2355,17 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
 
                 //System.out.println(mouseLoc);     //testing
                 repaint();
-                //delay to loop every 5 milliseconds; can make this a variable
-                //delayVariable
                 try {
                     Thread.sleep((long)(delayVariable));
+                } catch (InterruptedException e) {
+
+                }
+            }
+            else
+            {
+                // lobby: sleep so the loop doesn't peg the CPU
+                try {
+                    Thread.sleep(16);
                 } catch (InterruptedException e) {
 
                 }
