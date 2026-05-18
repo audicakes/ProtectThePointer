@@ -523,12 +523,12 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 g.drawRect(275,525, 465, 165);
                 g.drawString("* Keep your pointer on the window at all times",290,550);
                 //g.drawString("* Do not re-adjust window size",290,575);
-                g.drawString("* Do not let your pointer touch obstacles (3 lives)",290,600);
-                g.drawString("* You get 1 second of invincibility after losing a life",290,625);
-                g.drawString("* Click to collect coins and power ups",290,650);
+                g.drawString("* Do not let your pointer touch obstacles (3 lives)",290,575);
+                g.drawString("* You get 1 second of invincibility after losing a life",290,600);
+                g.drawString("* Click to collect coins and power ups",290,625);
                 //g.drawString("* Clicking only works when your mouse is stationary",290,650);
                 g.drawString("* Press spacebar to return to lobby screen",290,650);
-                g.drawString("* Have fun! :D",290,650);
+                g.drawString("* Have fun! :D",290,675);
             }
 
             //lobby music
