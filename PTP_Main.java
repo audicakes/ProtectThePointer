@@ -143,7 +143,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
         levelSongNames[5] = "Pokemon Battle";
         levelSongsUnlocked = new boolean [6];
 
-        coins = 0;
+        coins = 10;
         powerupsUnlocked = new boolean[4];
         themesUnlocked =  new boolean[5];
         themesUnlocked[0] = true;
@@ -228,7 +228,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 {
                     g.drawImage(lock, 685, 65, 50, 50, this);
                     g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-                    g.drawString("Unlock for 20 coins", 770, 145);
+                    g.drawString("Unlock for 10 coins", 770, 145);
                 }
                 else //circle theme unlocked
                 {
@@ -243,7 +243,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 {
                     g.drawImage(lock, 685, 65, 50, 50, this);
                     g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-                    g.drawString("Unlock for 30 coins", 770, 145);
+                    g.drawString("Unlock for 10 coins", 770, 145);
                 }
                 else //yin yang theme unlocked
                 {
@@ -258,7 +258,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 {
                     g.drawImage(lock, 685, 65, 50, 50, this);
                     g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-                    g.drawString("Unlock for 40 coins", 770, 145);
+                    g.drawString("Unlock for 20 coins", 770, 145);
                 }
                 else //party theme unlocked
                 {
@@ -273,7 +273,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 {
                     g.drawImage(lock, 685, 65, 50, 50, this);
                     g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-                    g.drawString("Unlock for 50 coins", 770, 145);
+                    g.drawString("Unlock for 30 coins", 770, 145);
                 }
                 else
                 {
@@ -294,7 +294,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 affineTransform3.rotate(Math.toRadians(-90), 0, 0);
                 Font rotatedFont3 = font3.deriveFont(affineTransform3);
                 g4.setFont(rotatedFont3);
-                g4.drawString("Unlock for 10 coins",90,360);
+                g4.drawString("Unlock for 5 coins",90,360);
                 //g4.dispose();
             }
             //level
@@ -308,7 +308,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 affineTransform4.rotate(Math.toRadians(90), 0, 0);
                 Font rotatedFont4 = font4.deriveFont(affineTransform4);
                 g5.setFont(rotatedFont4);
-                g5.drawString("Unlock for 10 coins",892,225);
+                g5.drawString("Unlock for 5 coins",892,225);
                 //g5.dispose();
             }
 
@@ -447,7 +447,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
             if(!powerupsUnlocked[0]) //heal power up locked
             {
-                g.drawString("Unlock for 30 coins", 90, 689);
+                g.drawString("Unlock for 20 coins", 90, 689);
                 g.drawImage(lock, 50, 545, 50, 50, this);
             }
             else //heal power up unlocked
@@ -463,7 +463,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
             if(!powerupsUnlocked[1]) //point power up locked
             {
-                g.drawString("Unlock for 30 coins", 315, 689);
+                g.drawString("Unlock for 20 coins", 315, 689);
                 g.drawImage(lock, 275, 545, 50, 50, this);
             }
             else //point power up unlocked
@@ -479,7 +479,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
             if(!powerupsUnlocked[2]) //clear power up locked
             {
-                g.drawString("Unlock for 30 coins", 540, 689);
+                g.drawString("Unlock for 20 coins", 540, 689);
                 g.drawImage(lock, 500, 545, 50, 50, this);
             }
             else //clear power up unlocked
@@ -495,12 +495,12 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
             if(!powerupsUnlocked[3]) //money power up locked
             {
-                g.drawString("Unlock for 30 coins", 765, 689);
+                g.drawString("Unlock for 20 coins", 765, 689);
                 g.drawImage(lock, 725, 545, 50, 50, this);
             }
             else //money power up unlocked
             {
-                g.drawString("Earns 3-5 Coins", 765, 689);
+                g.drawString("Earns 2-3 Coins", 765, 689);
             }
             repaint();
 
@@ -522,11 +522,13 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 }
                 g.drawRect(275,525, 465, 165);
                 g.drawString("* Keep your pointer on the window at all times",290,550);
-                g.drawString("* Do not re-adjust window size",290,575);
+                //g.drawString("* Do not re-adjust window size",290,575);
                 g.drawString("* Do not let your pointer touch obstacles (3 lives)",290,600);
-                g.drawString("* Tap to collect coins and power ups",290,625);
-                g.drawString("* Clicking only works when your mouse is stationary",290,650);
-                g.drawString("* Press spacebar to return to lobby screen",290,675);
+                g.drawString("* You get 1 second of invincibility after losing a life",290,625);
+                g.drawString("* Click to collect coins and power ups",290,650);
+                //g.drawString("* Clicking only works when your mouse is stationary",290,650);
+                g.drawString("* Press spacebar to return to lobby screen",290,650);
+                g.drawString("* Have fun! :D",290,650);
             }
 
             //lobby music
@@ -804,6 +806,11 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
      */
     public void mouseClicked(MouseEvent e)
     {
+        // logic handled in mousePressed
+    }
+
+    public void handleClick(MouseEvent e)
+    {
         if(themeNumber == 5  && themesUnlocked[4] == true) //Meme Theme
         {
             playMusicHitmarker();
@@ -878,10 +885,6 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 }
                 if(!gameOver)
                 {
-                    if(levelSongsUnlocked[levelSongNumber])
-                    {
-                        playMusicLevel(levelSongNames[levelSongNumber]);
-                    }
                 }
                 //System.out.println(lobbySongNumber); //testing
             }
@@ -900,10 +903,6 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 gameMode = "Level 1";
                 gameOver = false;
                 initializeGameModeSettings = false;
-                if(levelSongsUnlocked[levelSongNumber])
-                {
-                    playMusicLevel(levelSongNames[levelSongNumber]);
-                }
                 repaint();
             }
             //button for bullet challenge
@@ -920,10 +919,6 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 gameMode = "Bullet Challenge";
                 gameOver = false;
                 initializeGameModeSettings = false;
-                if(levelSongsUnlocked[levelSongNumber])
-                {
-                    playMusicLevel(levelSongNames[levelSongNumber]);
-                }
                 repaint();
             }
             //button for level 2 
@@ -941,10 +936,6 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 gameMode = "Level 2";
                 gameOver = false;
                 initializeGameModeSettings = false;
-                if(levelSongsUnlocked[levelSongNumber])
-                {
-                    playMusicLevel(levelSongNames[levelSongNumber]);
-                }
                 repaint();
             }
             //button for laser challenge
@@ -962,10 +953,6 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 gameMode = "Laser Challenge";
                 gameOver = false;
                 initializeGameModeSettings = false;
-                if(levelSongsUnlocked[levelSongNumber])
-                {
-                    playMusicLevel(levelSongNames[levelSongNumber]);
-                }
                 repaint();
             }
             //button for level 3
@@ -984,10 +971,6 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 gameMode = "Level 3";
                 gameOver = false;
                 initializeGameModeSettings = false;
-                if(levelSongsUnlocked[levelSongNumber])
-                {
-                    playMusicLevel(levelSongNames[levelSongNumber]);
-                }
                 repaint();
             }
             //button for bouncer challenge 
@@ -1006,10 +989,6 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                 gameMode = "Bouncer Challenge";
                 gameOver = false;
                 initializeGameModeSettings = false;
-                if(levelSongsUnlocked[levelSongNumber])
-                {
-                    playMusicLevel(levelSongNames[levelSongNumber]);
-                }
                 repaint();
             }
 
@@ -1018,24 +997,24 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             if(lastClick_xCoord > 760 && lastClick_xCoord < 760+180 &&
             lastClick_yCoord > 125 && lastClick_yCoord < 125+35)
             {
-                if(themeNumber == 2 && themesUnlocked[1] == false && coins>=20)
+                if(themeNumber == 2 && themesUnlocked[1] == false && coins>=10)
                 {
-                    coins -= 20;
+                    coins -= 10;
                     themesUnlocked[1] = true;
                 }
-                else if(themeNumber == 3 && themesUnlocked[2] == false && coins>=30)
+                else if(themeNumber == 3 && themesUnlocked[2] == false && coins>=10)
                 {
-                    coins-=30;
+                    coins-=10;
                     themesUnlocked[2] = true;
                 }
-                else if(themeNumber == 4 && themesUnlocked[3] == false && coins>=40)
+                else if(themeNumber == 4 && themesUnlocked[3] == false && coins>=20)
                 {
-                    coins-=40;
+                    coins-=20;
                     themesUnlocked[3] = true;
                 }
-                else if(themeNumber == 5 && themesUnlocked[4] == false && coins>=50)
+                else if(themeNumber == 5 && themesUnlocked[4] == false && coins>=30)
                 {
-                    coins-=50;
+                    coins-=30;
                     themesUnlocked[4] = true;
                 }
             }
@@ -1045,12 +1024,12 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //g.drawRect(70, 210, 25, 160);
             if(lastClick_xCoord > 70 && lastClick_xCoord < 70+25 &&
             lastClick_yCoord > 210 && lastClick_yCoord < 210+160 &&
-            coins >= 10)
+            coins >= 5)
             {
                 if(lobbySongsUnlocked[lobbySongNumber] == false)
                 {
                     lobbySongsUnlocked[lobbySongNumber] = true;
-                    coins -= 10;
+                    coins -= 5;
                     playMusicLobby(lobbySongNames[lobbySongNumber]);
                 }
             }
@@ -1058,12 +1037,12 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //g.drawRect(885, 210, 25, 160);
             if(lastClick_xCoord > 885 && lastClick_xCoord < 885+25 &&
             lastClick_yCoord > 210 && lastClick_yCoord < 210+160 &&
-            coins >= 10)
+            coins >= 5)
             {
                 if(levelSongsUnlocked[levelSongNumber] == false)
                 {
                     levelSongsUnlocked[levelSongNumber] = true;
-                    coins -= 10;
+                    coins -= 5;
                 }
             }
             repaint();
@@ -1072,36 +1051,36 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             //g.drawRect(80, 665, 180, 35);
             if(powerupsUnlocked[0] == false && lastClick_xCoord > 80 && lastClick_xCoord < 80+180 &&
             lastClick_yCoord > 665 && lastClick_yCoord < 665+35 &&
-            coins >= 30)
+            coins >= 20)
             {
-                coins-=30;
+                coins-=20;
                 powerupsUnlocked[0] = true;
             }
             //button to unlock point power up
             //g.drawRect(305, 665, 180, 35);
             if(powerupsUnlocked[1] == false && lastClick_xCoord > 305 && lastClick_xCoord < 305+180 &&
             lastClick_yCoord > 665 && lastClick_yCoord < 665+35 &&
-            coins >= 30)
+            coins >= 20)
             {
-                coins-=30;
+                coins-=20;
                 powerupsUnlocked[1] = true;
             }
             //button to unlock point power up
             //g.drawRect(530, 665, 180, 35);
             if(powerupsUnlocked[2] == false && lastClick_xCoord > 530 && lastClick_xCoord < 530+180 &&
             lastClick_yCoord > 665 && lastClick_yCoord < 665+35 &&
-            coins >= 30)
+            coins >= 20)
             {
-                coins-=30;
+                coins-=20;
                 powerupsUnlocked[2] = true;
             }
             //button to unlock money power up
             //g.drawRect(755, 665, 180, 35);
             if(powerupsUnlocked[3] == false && lastClick_xCoord > 755 && lastClick_xCoord < 755+180 &&
             lastClick_yCoord > 665 && lastClick_yCoord < 665+35 &&
-            coins >= 30)
+            coins >= 20)
             {
-                coins-=30;
+                coins-=20;
                 powerupsUnlocked[3] = true;
             }
             repaint();
@@ -1157,7 +1136,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                     }
                     else if(tempObs instanceof MoneyPowerup)
                     {
-                        int rand = (int)(3+Math.random()*3.0); //to do
+                        int rand = (int)(2+Math.random()*2.0); //tune MoneyPowerup reward: 2-3 coins
                         coins += rand;
                         obstacles.remove(i);
                     }
@@ -1176,7 +1155,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
     @Override
     public void mousePressed(MouseEvent e)
     {
-        mouseClicked(e);
+        handleClick(e);
     }
 
     @Override
@@ -1643,7 +1622,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
 
         if(lives<=0)
         {
-            coins += (int)(points/10);
+            coins += (int)(points/20);
             points = Math.round(points*Math.pow(10, 5))/Math.pow(10, 5);
             //System.out.println((int)((time/200.0)/20)); //testing
             gameOver = true;
@@ -1672,8 +1651,8 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             SuperObstacle tempObs = obstacles.get(i);
             checkCollide(tempObs);
             tempObs.move();
-            if(tempObs.getPos().x > 1100 || tempObs.getPos().y > 800 ||
-            tempObs.getPos().x < -300 || tempObs.getPos().y < -300)
+            if(tempObs.getPos().x > windowWidth || tempObs.getPos().y > windowHeight ||
+            tempObs.getPos().x + tempObs.getWidth() < 0 || tempObs.getPos().y + tempObs.getHeight() < 0)
             {
                 obstacles.remove(i);
                 i--;
@@ -1722,7 +1701,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
 
         if(lives<=0)
         {
-            coins += (int)(points/10);
+            coins += (int)(points/20);
             points = Math.round(points*Math.pow(10, 5))/Math.pow(10, 5);
             //System.out.println((int)((time/200.0)/20)); //testing
             gameOver = true;
@@ -1797,8 +1776,8 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             {
                 tempObs.move();
             }
-            if(tempObs.getPos().x > 1100 || tempObs.getPos().y > 800 ||
-            tempObs.getPos().x < -300 || tempObs.getPos().y < -300)
+            if(tempObs.getPos().x > windowWidth || tempObs.getPos().y > windowHeight ||
+            tempObs.getPos().x + tempObs.getWidth() < 0 || tempObs.getPos().y + tempObs.getHeight() < 0)
             {
                 obstacles.remove(i);
                 i--;
@@ -1859,7 +1838,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
 
         if(lives<=0)
         {
-            coins += (int)(points/5);
+            coins += (int)(points/7);
             points = Math.round(points*Math.pow(10, 5))/Math.pow(10, 5);
             gameOver = true;
         }
@@ -1895,8 +1874,8 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             SuperObstacle tempObs = obstacles.get(i);
             checkCollide(tempObs);
             tempObs.move();
-            if(tempObs.getPos().x > 1100 || tempObs.getPos().y > 800 ||
-            tempObs.getPos().x < -300 || tempObs.getPos().y < -300)
+            if(tempObs.getPos().x > windowWidth || tempObs.getPos().y > windowHeight ||
+            tempObs.getPos().x + tempObs.getWidth() < 0 || tempObs.getPos().y + tempObs.getHeight() < 0)
             {
                 obstacles.remove(i);
                 i--;
@@ -1955,7 +1934,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
 
         if(lives<=0)
         {
-            coins += (int)(points/10);
+            coins += (int)(points/20);
             points = Math.round(points*Math.pow(10, 5))/Math.pow(10, 5);
             //System.out.println((int)((time/200.0)/20)); //testing
             gameOver = true;
@@ -2040,7 +2019,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
 
         if(lives<=0)
         {
-            coins += (int)(points/7);
+            coins += (int)(points/10);
             points = Math.round(points*Math.pow(10, 5))/Math.pow(10, 5);
             gameOver = true;
         }
@@ -2092,8 +2071,8 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
             {
                 tempObs.move();
             }
-            if(tempObs.getPos().x > 1100 || tempObs.getPos().y > 800 ||
-            tempObs.getPos().x < -300 || tempObs.getPos().y < -300)
+            if(tempObs.getPos().x > windowWidth || tempObs.getPos().y > windowHeight ||
+            tempObs.getPos().x + tempObs.getWidth() < 0 || tempObs.getPos().y + tempObs.getHeight() < 0)
             {
                 obstacles.remove(i);
                 i--;
@@ -2307,10 +2286,6 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
                     if(clipLobby != null)
                     {
                         clipLobby.stop();
-                    }
-                    if(levelSongsUnlocked[levelSongNumber])
-                    {
-                        playMusicLevel(levelSongNames[levelSongNumber]);
                     }
                     if(themeNumber == 5 && themesUnlocked[4] == true)
                     {
