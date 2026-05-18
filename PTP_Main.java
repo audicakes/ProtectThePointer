@@ -1177,7 +1177,7 @@ public class PTP_Main extends JPanel implements MouseListener, KeyListener, Runn
     @Override
     public void mousePressed(MouseEvent e)
     {
-
+        mouseClicked(e);
     }
 
     @Override
