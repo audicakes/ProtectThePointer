@@ -1,3 +1,4 @@
+package obstacles;
 import java.awt.*;
 /**
  * Write a description of class DVDscreensaver here.

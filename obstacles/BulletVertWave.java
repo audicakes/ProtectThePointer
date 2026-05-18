@@ -1,11 +1,12 @@
+package obstacles;
 
 /**
- * Write a description of class VerticalBullet here.
+ * Write a description of class BulletVertWave here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class BulletVertical extends SuperObstacle
+public class BulletVertWave extends SuperObstacle
 {
     // instance variables - replace the example below with your own
     private boolean down;
@@ -14,21 +15,21 @@ public class BulletVertical extends SuperObstacle
      * Constructor for objects of class HorizontalBullet
      */
 
-    public BulletVertical(int xPos, int yPos, int w, int h, boolean b)
+    public BulletVertWave(int xPos, int yPos, int w, int h, boolean b)
     {
         super(xPos, yPos, w, h);
         down = b;
     }
 
-    public void move()
+    public void move(int xVector)
     {
         if(down)
         {
-            super.setPos(pos.x, pos.y+1);
+            super.setPos(pos.x+xVector, pos.y+1);
         }
         else
         {
-            super.setPos(pos.x, pos.y-1);
+            super.setPos(pos.x-xVector, pos.y-1);
         }
     }
 }

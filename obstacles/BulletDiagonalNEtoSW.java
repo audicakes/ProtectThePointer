@@ -1,3 +1,4 @@
+package obstacles;
 
 /**
  * Write a description of class BulletMovingSW here.

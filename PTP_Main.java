@@ -4,6 +4,8 @@
  * @author Kevin Zhang
  * @version 6/1/22
  */
+import obstacles.*;
+import powerups.*;
 import java.util.*;
 import java.awt.*;
 import java.awt.event.*;

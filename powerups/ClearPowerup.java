@@ -1,3 +1,5 @@
+package powerups;
+import obstacles.SuperObstacle;
 
 /**
  * Write a description of class ClearPowerup here.
